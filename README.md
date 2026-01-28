@@ -135,7 +135,7 @@ JWT_SECRET=your-jwt-secret-here
 
 ## 📚 Documentation
 
-- [VS Code Setup Guide](.vscode/VSCODE_SETUP_GUIDE.md)
+- [VS Code Setup Guide](VSCODE_SETUP_GUIDE.md)
 - [Architecture Overview](.ide/architecture.md)
 
 ## 📄 License
