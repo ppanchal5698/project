@@ -1,0 +1,264 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DEBUG CONFIGURATIONS - Universal launch.json
+  // Place this file at: .vscode/launch.json
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  "version": "0.2.0",
+  "configurations": [
+    // ─────────────────────────────────────────────────────────────────────────
+    // PYTHON CONFIGURATIONS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: FastAPI",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"],
+      "jinja": true,
+      "justMyCode": false,
+      "env": {
+        "ENVIRONMENT": "development"
+      }
+    },
+    {
+      "name": "Python: Flask",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "flask",
+      "env": {
+        "FLASK_APP": "app.py",
+        "FLASK_ENV": "development",
+        "FLASK_DEBUG": "1"
+      },
+      "args": ["run", "--no-debugger", "--no-reload", "--host", "0.0.0.0", "--port", "5000"],
+      "jinja": true,
+      "justMyCode": false
+    },
+    {
+      "name": "Python: Django",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/manage.py",
+      "args": ["runserver", "--noreload"],
+      "django": true,
+      "justMyCode": false
+    },
+    {
+      "name": "Python: Pytest Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["${file}", "-v", "-s", "--tb=short"],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Python: Pytest All",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["tests/", "-v", "--tb=short", "--cov=src", "--cov-report=html"],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // NODE.JS / TYPESCRIPT CONFIGURATIONS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "name": "Node: Current File",
+      "type": "node",
+      "request": "launch",
+      "program": "${file}",
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Node: TypeScript Current File",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["--loader", "tsx"],
+      "args": ["${file}"],
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Node: Express Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/index.ts",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "runtimeArgs": ["--loader", "tsx"],
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": "3000"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Node: NestJS",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": ["--loader", "tsx"],
+      "args": ["${workspaceFolder}/src/main.ts"],
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    {
+      "name": "Node: Attach to Process",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "skipFiles": ["<node_internals>/**"]
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // NEXT.JS / REACT CONFIGURATIONS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "name": "Next.js: Debug Server",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    },
+    {
+      "name": "Next.js: Debug Full Stack",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      },
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**",
+        "${workspaceFolder}/.next/**"
+      ]
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // CHROME / BROWSER CONFIGURATIONS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "name": "Chrome: Launch",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:///./~/*": "${webRoot}/node_modules/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///*": "*"
+      }
+    },
+    {
+      "name": "Chrome: Attach",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}"
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PLAYWRIGHT E2E TESTING
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "name": "Playwright: Current Test",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@playwright/test/cli.js",
+      "args": ["test", "${file}", "--headed"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playwright: All Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@playwright/test/cli.js",
+      "args": ["test", "--headed"],
+      "console": "integratedTerminal"
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // VITEST TESTING
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "name": "Vitest: Current File",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "test", "--", "${file}"],
+      "console": "integratedTerminal"
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // DOCKER CONFIGURATIONS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "name": "Docker: Attach to Node",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/app",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Docker: Attach to Python",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}",
+          "remoteRoot": "/app"
+        }
+      ]
+    }
+  ],
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // COMPOUND CONFIGURATIONS (Run multiple debuggers simultaneously)
+  // ─────────────────────────────────────────────────────────────────────────
+  "compounds": [
+    {
+      "name": "Full Stack: Next.js + API",
+      "configurations": ["Next.js: Debug Server", "Node: Express Server"],
+      "stopAll": true
+    },
+    {
+      "name": "Full Stack: React + Python",
+      "configurations": ["Chrome: Launch", "Python: FastAPI"],
+      "stopAll": true
+    }
+  ]
+}

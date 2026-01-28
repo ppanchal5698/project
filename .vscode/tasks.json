@@ -1,0 +1,455 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════
+  // TASKS CONFIGURATION - Universal tasks.json
+  // Place this file at: .vscode/tasks.json
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  "version": "2.0.0",
+  "tasks": [
+    // ─────────────────────────────────────────────────────────────────────────
+    // PYTHON TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "Python: Install Dependencies",
+      "type": "shell",
+      "command": "pip install -r requirements.txt",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Python: Create Virtual Environment",
+      "type": "shell",
+      "command": "python -m venv .venv",
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: Run Tests",
+      "type": "shell",
+      "command": "pytest tests/ -v --cov=src --cov-report=html",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Python: Type Check (mypy)",
+      "type": "shell",
+      "command": "mypy src/",
+      "problemMatcher": ["$mypy"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Python: Lint & Format (Ruff)",
+      "type": "shell",
+      "command": "ruff check src/ --fix && ruff format src/",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Python: Run FastAPI Server",
+      "type": "shell",
+      "command": "uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*Uvicorn running.*$",
+          "endsPattern": "^.*Application startup complete.*$"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Python: Run Flask Server",
+      "type": "shell",
+      "command": "flask run --debug",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // NODE.JS / TYPESCRIPT TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "NPM: Install Dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "NPM: Clean Install",
+      "type": "shell",
+      "command": "rm -rf node_modules package-lock.json && npm install",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "TypeScript: Build",
+      "type": "typescript",
+      "tsconfig": "tsconfig.json",
+      "problemMatcher": ["$tsc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "TypeScript: Watch",
+      "type": "typescript",
+      "tsconfig": "tsconfig.json",
+      "option": "watch",
+      "problemMatcher": ["$tsc-watch"],
+      "isBackground": true
+    },
+    {
+      "label": "Node: Run Tests",
+      "type": "shell",
+      "command": "npm test",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Node: Run Tests (Watch)",
+      "type": "shell",
+      "command": "npm test -- --watch",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Node: Lint (ESLint)",
+      "type": "shell",
+      "command": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+      "problemMatcher": ["$eslint-stylish"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Node: Format (Prettier)",
+      "type": "shell",
+      "command": "prettier --write .",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "Node: Security Audit",
+      "type": "shell",
+      "command": "npm audit",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // NEXT.JS TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "Next.js: Dev Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*starting the development server.*$",
+          "endsPattern": "^.*compiled successfully.*$"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Next.js: Build",
+      "type": "shell",
+      "command": "npm run build",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Next.js: Start Production",
+      "type": "shell",
+      "command": "npm run start",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // VUE / NUXT TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "Nuxt: Dev Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // DOCKER TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "Docker: Build",
+      "type": "shell",
+      "command": "docker-compose build",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Docker: Up",
+      "type": "shell",
+      "command": "docker-compose up",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Docker: Up (Detached)",
+      "type": "shell",
+      "command": "docker-compose up -d",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Docker: Down",
+      "type": "shell",
+      "command": "docker-compose down",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Docker: Logs",
+      "type": "shell",
+      "command": "docker-compose logs -f",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Docker: Rebuild & Restart",
+      "type": "shell",
+      "command": "docker-compose down && docker-compose build && docker-compose up",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // DATABASE TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "DB: Run Migrations (Alembic)",
+      "type": "shell",
+      "command": "alembic upgrade head",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "DB: Create Migration (Alembic)",
+      "type": "shell",
+      "command": "alembic revision --autogenerate -m \"${input:migrationMessage}\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "DB: Run Migrations (Prisma)",
+      "type": "shell",
+      "command": "npx prisma migrate dev",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "DB: Generate Prisma Client",
+      "type": "shell",
+      "command": "npx prisma generate",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "DB: Prisma Studio",
+      "type": "shell",
+      "command": "npx prisma studio",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PLAYWRIGHT E2E TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "Playwright: Install Browsers",
+      "type": "shell",
+      "command": "npx playwright install",
+      "problemMatcher": []
+    },
+    {
+      "label": "Playwright: Run Tests",
+      "type": "shell",
+      "command": "npx playwright test",
+      "group": "test",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Playwright: Run Tests (Headed)",
+      "type": "shell",
+      "command": "npx playwright test --headed",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Playwright: Show Report",
+      "type": "shell",
+      "command": "npx playwright show-report",
+      "problemMatcher": []
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // GIT TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "Git: Pull",
+      "type": "shell",
+      "command": "git pull",
+      "problemMatcher": []
+    },
+    {
+      "label": "Git: Push",
+      "type": "shell",
+      "command": "git push",
+      "problemMatcher": []
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // CLEANUP TASKS
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      "label": "Clean: Python Cache",
+      "type": "shell",
+      "command": "find . -type d -name '__pycache__' -exec rm -rf {} + && find . -type f -name '*.pyc' -delete",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean: Node Modules",
+      "type": "shell",
+      "command": "rm -rf node_modules",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean: Build Artifacts",
+      "type": "shell",
+      "command": "rm -rf dist build .next .nuxt out coverage .pytest_cache .mypy_cache .ruff_cache",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean: All",
+      "type": "shell",
+      "command": "rm -rf node_modules dist build .next .nuxt out coverage __pycache__ .pytest_cache .mypy_cache .ruff_cache .venv venv",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    }
+  ],
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // INPUT DEFINITIONS (for parameterized tasks)
+  // ─────────────────────────────────────────────────────────────────────────
+  "inputs": [
+    {
+      "id": "migrationMessage",
+      "type": "promptString",
+      "description": "Migration message",
+      "default": "migration"
+    }
+  ]
+}

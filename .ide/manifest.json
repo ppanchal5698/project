@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-01-28T00:00:00Z",
+  "files": {
+    "src/": {
+      "summary": "Main source code directory (empty - awaiting implementation)",
+      "last_modified": "2026-01-28T00:00:00Z"
+    },
+    "tests/": {
+      "summary": "Test files directory (empty - awaiting tests)",
+      "last_modified": "2026-01-28T00:00:00Z"
+    },
+    ".github/workflows/ci.yml": {
+      "summary": "GitHub Actions CI/CD pipeline for Python and Node.js",
+      "last_modified": "2026-01-28T00:00:00Z"
+    },
+    ".vscode/settings.json": {
+      "summary": "VS Code editor settings with formatters and linters",
+      "last_modified": "2026-01-28T00:00:00Z"
+    },
+    ".vscode/tasks.json": {
+      "summary": "VS Code tasks for Python, Node.js, Docker, and database operations",
+      "last_modified": "2026-01-28T00:00:00Z"
+    },
+    ".vscode/launch.json": {
+      "summary": "Debug configurations for Python, Node.js, and browsers",
+      "last_modified": "2026-01-28T00:00:00Z"
+    },
+    "requirements.txt": {
+      "summary": "Python dependencies file",
+      "last_modified": "2026-01-28T00:00:00Z"
+    },
+    "package.json": {
+      "summary": "Node.js package configuration",
+      "last_modified": "2026-01-28T00:00:00Z"
+    }
+  },
+  "modules": {
+    "src": "Main application source code",
+    "tests": "Unit and integration tests",
+    ".github": "GitHub Actions CI/CD workflows",
+    ".vscode": "VS Code workspace configuration",
+    ".ide": "IDE context management for AI assistants"
+  }
+}

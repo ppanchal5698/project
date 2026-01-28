@@ -1,0 +1,413 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════
+  // UNIVERSAL VSCODE SETTINGS - Works for any project
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // EDITOR - Core Behavior
+  // ─────────────────────────────────────────────────────────────────────────
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "source.sortImports": "explicit"
+  },
+  "editor.defaultFormatter": null, // Language-specific formatters below
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.trimAutoWhitespace": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [80, 100, 120],
+  "editor.wordWrap": "off",
+  "editor.lineNumbers": "on",
+  "editor.minimap.enabled": true,
+  "editor.minimap.maxColumn": 120,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.snippetSuggestions": "top",
+  "editor.linkedEditing": true,
+  "editor.unicodeHighlight.ambiguousCharacters": true,
+  "editor.unicodeHighlight.invisibleCharacters": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // FILES - Auto-save & Encoding
+  // ─────────────────────────────────────────────────────────────────────────
+  "files.autoSave": "onFocusChange",
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true,
+    "**/.ruff_cache": true,
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.nuxt": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.turbo": true,
+    "**/*.egg-info": true,
+    "**/.venv": true,
+    "**/venv": true,
+    "**/.env": false // Show .env files (important for config)
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.hg/store/**": true,
+    "**/__pycache__/**": true,
+    "**/.venv/**": true,
+    "**/venv/**": true,
+    "**/dist/**": true,
+    "**/build/**": true
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // SEARCH - Optimized Exclusions
+  // ─────────────────────────────────────────────────────────────────────────
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true,
+    "**/.nuxt": true,
+    "**/coverage": true,
+    "**/.pytest_cache": true,
+    "**/__pycache__": true,
+    "**/.mypy_cache": true,
+    "**/.ruff_cache": true,
+    "**/*.lock": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true,
+    "**/pnpm-lock.yaml": true,
+    "**/poetry.lock": true,
+    "**/Pipfile.lock": true
+  },
+  "search.useIgnoreFiles": true,
+  "search.followSymlinks": false,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // TERMINAL
+  // ─────────────────────────────────────────────────────────────────────────
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.enableMultiLinePasteWarning": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // GIT
+  // ─────────────────────────────────────────────────────────────────────────
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.postCommitCommand": "none",
+  "git.enableCommitSigning": false,
+  "git.ignoreLimitWarning": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // PYTHON - Universal Configuration
+  // ─────────────────────────────────────────────────────────────────────────
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.tabSize": 4,
+    "editor.rulers": [88, 120]
+  },
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.languageServer": "Pylance",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": ["--verbose", "--color=yes", "--tb=short"],
+  "python.linting.enabled": false, // Use Ruff instead
+  "python.formatting.provider": "none", // Use Ruff
+
+  // Ruff (Python linter + formatter)
+  "ruff.enable": true,
+  "ruff.organizeImports": true,
+  "ruff.fixAll": true,
+  "ruff.showNotifications": "onWarning",
+
+  // MyPy (type checking)
+  "mypy-type-checker.args": ["--strict", "--ignore-missing-imports", "--show-error-codes"],
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // JAVASCRIPT / TYPESCRIPT - Universal Configuration
+  // ─────────────────────────────────────────────────────────────────────────
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+
+  // TypeScript
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.autoImports": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+
+  // JavaScript
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.suggest.autoImports": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+
+  // ESLint
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.format.enable": false, // Use Prettier for formatting
+
+  // Prettier
+  "prettier.enable": true,
+  "prettier.requireConfig": false,
+  "prettier.useEditorConfig": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // FRAMEWORKS - React, Vue, Next.js, etc.
+  // ─────────────────────────────────────────────────────────────────────────
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode",
+    "editor.tabSize": 2
+  },
+
+  // Volar (Vue)
+  "vue.inlayHints.inlineHandlerLeading": true,
+  "vue.server.hybridMode": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // HTML / CSS / JSON / YAML / MARKDOWN
+  // ─────────────────────────────────────────────────────────────────────────
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // SQL
+  // ─────────────────────────────────────────────────────────────────────────
+  "[sql]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // DOCKER
+  // ─────────────────────────────────────────────────────────────────────────
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
+    "editor.tabSize": 2
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // EMMET - HTML/CSS Shortcuts
+  // ─────────────────────────────────────────────────────────────────────────
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
+    "vue-html": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // INTELLISENSE & AUTOCOMPLETE
+  // ─────────────────────────────────────────────────────────────────────────
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.suggest.preview": true,
+  "editor.suggest.showStatusBar": true,
+  "editor.parameterHints.enabled": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // GITHUB COPILOT (if installed)
+  // ─────────────────────────────────────────────────────────────────────────
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": true
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // PRETTIER (Global Defaults)
+  // ─────────────────────────────────────────────────────────────────────────
+  "prettier.semi": true,
+  "prettier.singleQuote": false,
+  "prettier.trailingComma": "es5",
+  "prettier.printWidth": 100,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.arrowParens": "always",
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // TAILWIND CSS (if used)
+  // ─────────────────────────────────────────────────────────────────────────
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // SECURITY - Path Intellisense
+  // ─────────────────────────────────────────────────────────────────────────
+  "path-intellisense.autoSlashAfterDirectory": true,
+  "path-intellisense.extensionOnImport": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // WORKSPACE RECOMMENDATIONS
+  // ─────────────────────────────────────────────────────────────────────────
+  "extensions.ignoreRecommendations": false,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // BREADCRUMBS
+  // ─────────────────────────────────────────────────────────────────────────
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.filePath": "on",
+  "breadcrumbs.symbolPath": "on",
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // PROBLEMS PANEL
+  // ─────────────────────────────────────────────────────────────────────────
+  "problems.decorations.enabled": true,
+  "problems.showCurrentInStatus": true,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // SECURITY - Workspace Trust
+  // ─────────────────────────────────────────────────────────────────────────
+  "security.workspace.trust.untrustedFiles": "prompt",
+  "security.workspace.trust.banner": "always",
+  "security.workspace.trust.startupPrompt": "always",
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // PERFORMANCE
+  // ─────────────────────────────────────────────────────────────────────────
+  "files.associations": {
+    "*.json": "jsonc",
+    ".env*": "dotenv",
+    "*.css": "tailwindcss"
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // WORKBENCH - UI Preferences
+  // ─────────────────────────────────────────────────────────────────────────
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.iconTheme": "vs-seti",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+  "workbench.tree.indent": 20,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // EXPLORER
+  // ─────────────────────────────────────────────────────────────────────────
+  "explorer.confirmDelete": true,
+  "explorer.confirmDragAndDrop": true,
+  "explorer.compactFolders": false,
+  "explorer.sortOrder": "type",
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // DEBUG
+  // ─────────────────────────────────────────────────────────────────────────
+  "debug.console.fontSize": 13,
+  "debug.console.wordWrap": false,
+  "debug.internalConsoleOptions": "openOnSessionStart",
+  "debug.openDebug": "openOnDebugBreak",
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // MISC
+  // ─────────────────────────────────────────────────────────────────────────
+  "update.mode": "start",
+  "telemetry.telemetryLevel": "off",
+  "window.zoomLevel": 0,
+  "window.restoreWindows": "all"
+}

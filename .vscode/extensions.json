@@ -1,0 +1,119 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════
+  // RECOMMENDED EXTENSIONS - Auto-prompt installation
+  // Place this file at: .vscode/extensions.json
+  // ═══════════════════════════════════════════════════════════════════════════
+  
+  "recommendations": [
+    // ─── CORE PRODUCTIVITY ─────────────────────────────────────────────────
+    "usernamehw.errorlens",                    // Inline error display
+    "eamodio.gitlens",                         // Advanced Git features
+    "streetsidesoftware.code-spell-checker",   // Spell checking
+    "wayou.vscode-todo-highlight",             // Highlight TODOs
+    "gruntfuggly.todo-tree",                   // TODO tree view
+    "aaron-bond.better-comments",              // Enhanced comment styling
+    
+    // ─── PYTHON ────────────────────────────────────────────────────────────
+    "ms-python.python",                        // Python language support
+    "ms-python.vscode-pylance",                // Fast Python language server
+    "ms-python.debugpy",                       // Python debugger
+    "charliermarsh.ruff",                      // Ruff linter & formatter (fast!)
+    "ms-python.mypy-type-checker",             // MyPy type checking
+    "donjayamanne.python-environment-manager", // Virtual env management
+    "kevinrose.vsc-python-indent",             // Better Python indentation
+    "njpwerner.autodocstring",                 // Auto-generate docstrings
+    
+    // ─── JAVASCRIPT / TYPESCRIPT ───────────────────────────────────────────
+    "dbaeumer.vscode-eslint",                  // ESLint integration
+    "esbenp.prettier-vscode",                  // Prettier formatter
+    "bradlc.vscode-tailwindcss",               // Tailwind CSS IntelliSense
+    "styled-components.vscode-styled-components", // Styled components syntax
+    "usernamehw.errorlens",                    // Inline TS errors
+    "yoavbls.pretty-ts-errors",                // Better TS error messages
+    "wix.vscode-import-cost",                  // Show import size
+    "christian-kohler.path-intellisense",      // Path autocomplete
+    
+    // ─── FRAMEWORKS ────────────────────────────────────────────────────────
+    "vue.volar",                               // Vue 3 support
+    "vue.vscode-typescript-vue-plugin",        // Vue TS support
+    "svelte.svelte-vscode",                    // Svelte support
+    "prisma.prisma",                           // Prisma ORM support
+    "unifiedjs.vscode-mdx",                    // MDX support
+    
+    // ─── WEB DEVELOPMENT ───────────────────────────────────────────────────
+    "ritwickdey.liveserver",                   // Live preview server
+    "zignd.html-css-class-completion",         // CSS class autocomplete
+    "formulahendry.auto-rename-tag",           // Auto rename paired tags
+    "pranaygp.vscode-css-peek",                // Peek CSS definitions
+    
+    // ─── DATABASE ──────────────────────────────────────────────────────────
+    "mtxr.sqltools",                           // SQL tools
+    "mtxr.sqltools-driver-pg",                 // PostgreSQL driver
+    "ckolkman.vscode-postgres",                // PostgreSQL client
+    "mongodb.mongodb-vscode",                  // MongoDB support
+    
+    // ─── DOCKER / DEVOPS ───────────────────────────────────────────────────
+    "ms-azuretools.vscode-docker",             // Docker support
+    "ms-vscode-remote.remote-containers",      // Dev containers
+    "ms-kubernetes-tools.vscode-kubernetes-tools", // Kubernetes
+    
+    // ─── API / REST ────────────────────────────────────────────────────────
+    "humao.rest-client",                       // REST client (alternative to Postman)
+    "rangav.vscode-thunder-client",            // Thunder Client (REST testing)
+    
+    // ─── GIT / VERSION CONTROL ─────────────────────────────────────────────
+    "mhutchie.git-graph",                      // Visual Git graph
+    "donjayamanne.githistory",                 // Git file history
+    "github.vscode-pull-request-github",       // GitHub PR integration
+    
+    // ─── TESTING ───────────────────────────────────────────────────────────
+    "hbenl.vscode-test-explorer",              // Test explorer UI
+    "littlefoxteam.vscode-python-test-adapter", // Python test adapter
+    "ms-playwright.playwright",                // Playwright E2E testing
+    
+    // ─── MARKDOWN / DOCUMENTATION ──────────────────────────────────────────
+    "yzhang.markdown-all-in-one",              // Markdown support
+    "bierner.markdown-mermaid",                // Mermaid diagrams in Markdown
+    "shd101wyy.markdown-preview-enhanced",     // Enhanced Markdown preview
+    
+    // ─── DATA FORMATS ──────────────────────────────────────────────────────
+    "tamasfe.even-better-toml",                // TOML support
+    "redhat.vscode-yaml",                      // YAML support
+    "dotenv.dotenv-vscode",                    // .env file support
+    
+    // ─── LINTING / FORMATTING ──────────────────────────────────────────────
+    "editorconfig.editorconfig",               // EditorConfig support
+    "foxundermoon.shell-format",               // Shell script formatting
+    
+    // ─── SNIPPETS ──────────────────────────────────────────────────────────
+    "dsznajder.es7-react-js-snippets",         // React snippets
+    "xabikos.javascriptsnippets",              // JavaScript snippets
+    
+    // ─── THEME / ICONS ─────────────────────────────────────────────────────
+    "pkief.material-icon-theme",               // Material icon theme
+    "github.github-vscode-theme",              // GitHub theme
+    
+    // ─── AI ASSISTANTS (Optional - choose one or more) ────────────────────
+    "github.copilot",                          // GitHub Copilot
+    "github.copilot-chat",                     // Copilot Chat
+    "continue.continue",                       // Continue.dev (free, open-source)
+    "saoudrizwan.claude-dev",                  // Cline (Claude Dev)
+    
+    // ─── UTILITIES ─────────────────────────────────────────────────────────
+    "alefragnani.bookmarks",                   // Code bookmarks
+    "oderwat.indent-rainbow",                  // Rainbow indentation
+    "naumovs.color-highlight",                 // Highlight color codes
+    "johnpapa.vscode-peacock",                 // Workspace colorization
+    "formulahendry.code-runner",               // Quick code execution
+    "ms-vsliveshare.vsliveshare",              // Live Share collaboration
+    "humao.rest-client"                        // REST API testing
+  ],
+  
+  // Extensions to avoid or replace
+  "unwantedRecommendations": [
+    "ms-python.pylint",                        // Use Ruff instead
+    "ms-python.flake8",                        // Use Ruff instead
+    "ms-python.black-formatter",               // Use Ruff instead
+    "hookyqr.beautify"                         // Use Prettier instead
+  ]
+}
